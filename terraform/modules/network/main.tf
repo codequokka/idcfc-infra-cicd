@@ -13,12 +13,12 @@ resource "cloudstack_firewall" "public_ipaddress" {
   }
 }
 
-# resource "cloudstack_port_forward" "pf_ssh" {
-#   ip_address_id = cloudstack_ipaddress.public_ipaddress.id
-#   forward {
-#     protocol           = "tcp"
-#     private_port       = 22
-#     public_port        = 22
-#     virtual_machine_id = cloudstack_instance.bastion.id
-#   }
-# }
+resource "cloudstack_port_forward" "ssh" {
+  ip_address_id = cloudstack_ipaddress.public.id
+  forward {
+    protocol           = "tcp"
+    private_port       = 22
+    public_port        = 22
+    virtual_machine_id = var.bastion_id
+  }
+}
