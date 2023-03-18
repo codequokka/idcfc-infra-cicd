@@ -1,0 +1,3 @@
+---
+- name: Set up docker
+  ansible.builtin.import_tasks: setup.yml

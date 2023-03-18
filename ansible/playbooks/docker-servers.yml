@@ -1,0 +1,7 @@
+---
+- name: Set up docker servers
+  hosts: docker
+  become: true
+  roles:
+    - role: docker
+      tags: docker
