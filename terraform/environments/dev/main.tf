@@ -10,8 +10,9 @@ module "network" {
 module "servers" {
   source = "../../modules/servers"
 
-  env        = var.env
-  network_id = var.network_id
-  zone       = var.zone
-  template   = var.template
+  env          = var.env
+  network_id   = var.network_id
+  zone         = var.zone
+  template     = var.template
+  docker_hosts = var.docker_hosts
 }

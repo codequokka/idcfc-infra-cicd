@@ -36,3 +36,8 @@ variable "template" {
   type    = string
   default = "Rocky Linux 8.4 64-bit"
 }
+
+variable "docker_hosts" {
+  type    = list(string)
+  default = ["docker-01", "docker-02"]
+}
