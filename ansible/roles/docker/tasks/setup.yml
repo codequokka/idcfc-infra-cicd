@@ -17,7 +17,8 @@
     - docker-compose-plugin-2.16.0
 
 - name: Start OS services
-  ansible.builtin.service:
+  service:
+  # ansible.builtin.service:
     name: docker
     state: started
     enabled: true
