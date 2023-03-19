@@ -1,0 +1,19 @@
+---
+- name: Check the root user can execute the docker command
+  ansible.builtin.command:
+    cmd: /bin/bash -lc "docker ps"
+  changed_when: false
+
+- name: Check the docker verson is as expected
+  block:
+    - name: Get the docker verson
+      ansible.builtin.command:
+        cmd: /bin/bash -lc "docker --version"
+      changed_when: false
+      register: _docker_version
+
+    - name: Check the docker verson is as expected
+      ansible.builtin.assert:
+        that: "'23.0.1' in _docker_version.stdout"
+        success_msg: Docker version is as expected
+        fail_msg: Docker version is not as expected

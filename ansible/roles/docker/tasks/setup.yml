@@ -1,4 +1,4 @@
-# ---
+---
 - name: Add OS package repo
   ansible.builtin.command:
     cmd: dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
