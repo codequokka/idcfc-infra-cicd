@@ -1,0 +1,24 @@
+---
+name: Run ansible-lint
+
+on: push
+
+jobs:
+  ansible-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Setup the python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          cache: pip
+
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Run ansible-lint
+        run: ansible-lint playbooks
+        working-directory: ansible
