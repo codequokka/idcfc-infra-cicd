@@ -1,0 +1,3 @@
+---
+- name: Setup docker servers
+  import_playbook: docker-servers.yml
