@@ -7,13 +7,16 @@ jobs:
   ansible-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout the repository
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+      - name: Setup the python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
-      - uses: actions/cache@v3
+      - name: Use pip cache
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
