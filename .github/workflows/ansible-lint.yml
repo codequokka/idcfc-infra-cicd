@@ -20,5 +20,5 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Run ansible-lint
-        run: ansible-lint playbooks
+        run: ansible-lint --force-color playbooks
         working-directory: ansible
