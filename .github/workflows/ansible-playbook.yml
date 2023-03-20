@@ -41,6 +41,6 @@ jobs:
       - name: Print ssh-add identities
         run: ssh-add -l
 
-      - name: Run ansible-lint
-        run: ansible-lint playbooks
+      - name: Run ansible-playbook
+        run: ansible-playbook -i inventories/dev/hosts.ini playbooks/site.yml
         working-directory: ansible
