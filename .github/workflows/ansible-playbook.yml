@@ -42,5 +42,7 @@ jobs:
         run: ssh-add -l
 
       - name: Run ansible-playbook
+        env:
+          ANSIBLE_FORCE_COLOR: 1
         run: ansible-playbook -i inventories/dev/hosts.ini playbooks/site.yml
         working-directory: ansible
