@@ -1,7 +1,7 @@
 ---
 name: Run ansible-playbook
 
-on: push
+on: pull_request
 
 env:
   # Use the same ssh-agent socket value across all jobs
