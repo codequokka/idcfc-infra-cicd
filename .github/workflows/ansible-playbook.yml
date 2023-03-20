@@ -42,5 +42,5 @@ jobs:
         run: ssh-add -l
 
       - name: Run ansible-playbook
-        run: ansible-playbook -vvv -i inventories/dev/hosts.ini playbooks/site.yml
+        run: ansible-playbook -i inventories/dev/hosts.ini playbooks/site.yml
         working-directory: ansible
