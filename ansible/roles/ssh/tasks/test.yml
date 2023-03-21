@@ -1,0 +1,8 @@
+---
+- name: "[WIP] Check the root user can login to the server with the public key"
+  ansible.builtin.debug:
+    msg: NOT IMPLEMENTED!
+
+- name: "[WIP] Check the root user can not login to the server with the password"
+  ansible.builtin.debug:
+    msg: NOT IMPLEMENTED!
