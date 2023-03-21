@@ -1,0 +1,29 @@
+---
+name: Run tflint
+
+on: push
+
+jobs:
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v3
+        with:
+          tflint_version: v0.45.0
+
+      - name: Show version
+        run: tflint --version
+
+      # - name: Init TFLint
+      #   run: tflint --init
+      #   env:
+      #     # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
+      #     GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Run TFLint
+        run: tflint -f compact --recursive
+        working-directory: terraform
