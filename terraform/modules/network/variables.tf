@@ -1,4 +1,14 @@
-variable "network_id" {}
-variable "zone" {}
-variable "cidr_list" {}
-variable "bastion_id" {}
+variable "network_id" {
+  type = string
+}
+variable "zone" {
+  type = string
+}
+
+variable "cidr_list" {
+  type = list(string)
+}
+
+variable "bastion_id" {
+  type = string
+}

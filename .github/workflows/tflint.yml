@@ -1,0 +1,27 @@
+---
+name: Run tflint
+
+on:
+  push:
+    paths:
+      - terraform/*
+      - .github/workflows/tflint.yml
+
+jobs:
+  tflint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v3
+        with:
+          tflint_version: v0.45.0
+
+      - name: Show version
+        run: tflint --version
+
+      - name: Run TFLint
+        run: tflint -f compact --recursive
+        working-directory: terraform
