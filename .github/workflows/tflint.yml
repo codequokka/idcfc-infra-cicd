@@ -1,7 +1,11 @@
 ---
 name: Run tflint
 
-on: push
+on:
+  push:
+    paths:
+      - terraform/*
+      - .github/workflows/tflint.yml
 
 jobs:
   tflint:
